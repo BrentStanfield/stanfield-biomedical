@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stanfield Biomedical - HSV Research Services Flyer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        @page {
+            size: letter;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .flyer {
+            width: 8.5in;
+            height: 11in;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+        }
+
+        .company-name {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Hero */
+        .hero {
+            background: #4299e1;
+            color: white;
+            padding: 35px 50px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Models Section */
+        .models {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .model-card {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .model-card.featured {
+            border-color: #4299e1;
+            background: linear-gradient(135deg, #ebf8ff 0%, #f0fff4 100%);
+        }
+
+        .model-badge {
+            display: inline-block;
+            background: #4299e1;
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .model-card h3 {
+            color: #1a365d;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .model-card ul {
+            list-style: none;
+            color: #4a5568;
+            font-size: 14px;
+        }
+
+        .model-card li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .model-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #38a169;
+            font-weight: bold;
+        }
+
+        /* Why Section */
+        .why-section h2 {
+            color: #1a365d;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .why-item {
+            text-align: center;
+        }
+
+        .why-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .why-item h4 {
+            color: #1a365d;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .why-item p {
+            color: #718096;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        /* Applications */
+        .applications {
+            background: #1a365d;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .applications h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .app-list {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 14px;
+        }
+
+        .app-list span {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin: 4px 0;
+        }
+
+        .contact-info a {
+            color: #63b3ed;
+            text-decoration: none;
+        }
+
+        .qr-placeholder {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a365d;
+            font-size: 10px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .partner-badge {
+            text-align: right;
+        }
+
+        .partner-badge p {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+
+        .partner-badge .lsu {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .flyer {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer">
+        <header class="header">
+            <div class="company-name">Stanfield Biomedical</div>
+            <div class="tagline">Preclinical Research Services</div>
+        </header>
+
+        <div class="hero">
+            <h1>HSV Preclinical Efficacy Studies</h1>
+            <p>Validated guinea pig and mouse models for vaccine and antiviral development</p>
+        </div>
+
+        <div class="content">
+            <div class="models">
+                <div class="model-card featured">
+                    <span class="model-badge">Gold Standard</span>
+                    <h3>Guinea Pig HSV-2 Model</h3>
+                    <ul>
+                        <li>Genital infection with spontaneous recurrences</li>
+                        <li>Latency establishment and reactivation</li>
+                        <li>Lesion scoring and viral shedding</li>
+                        <li>Prophylactic and therapeutic vaccine studies</li>
+                        <li>Ideal for clinical translation</li>
+                    </ul>
+                </div>
+                <div class="model-card">
+                    <span class="model-badge">Screening</span>
+                    <h3>Mouse HSV-2 Model</h3>
+                    <ul>
+                        <li>Cost-effective initial screening</li>
+                        <li>Acute infection endpoints</li>
+                        <li>Survival and pathogenesis studies</li>
+                        <li>Immunogenicity assessment</li>
+                        <li>Rapid turnaround</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="why-section">
+                <h2>Why Partner With Us?</h2>
+                <div class="why-grid">
+                    <div class="why-item">
+                        <div class="why-icon">🎓</div>
+                        <h4>Academic Excellence</h4>
+                        <p>LSU partnership with rigorous scientific standards</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon">🐹</div>
+                        <h4>Guinea Pig Experts</h4>
+                        <p>Specialized capabilities most CROs can't offer</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon">📊</div>
+                        <h4>Publication-Quality Data</h4>
+                        <p>Comprehensive reports supporting your program</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon">💬</div>
+                        <h4>Direct Access</h4>
+                        <p>Work directly with scientific leadership</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="applications">
+                <h3>Study Applications</h3>
+                <div class="app-list">
+                    <span>🔬 Prophylactic Vaccines</span>
+                    <span>💉 Therapeutic Vaccines</span>
+                    <span>💊 Antivirals</span>
+                    <span>🧬 Gene Therapy</span>
+                    <span>🦠 Immunomodulators</span>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="contact-info">
+                <h3>Let's Discuss Your Study</h3>
+                <p>📧 <a href="mailto:info@stanfieldbiomedical.com">info@stanfieldbiomedical.com</a></p>
+                <p>🌐 <a href="https://stanfieldbiomedical.com">stanfieldbiomedical.com</a></p>
+            </div>
+            <div class="partner-badge">
+                <p>In partnership with</p>
+                <div class="lsu">Louisiana State University</div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
